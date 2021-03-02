@@ -19,7 +19,87 @@ function generatecat() {
     let image = document.createElement("img");
     let div = document.getElementById("generatecat");
     image.src = "http://thecatapi.com/api/images/get?format=src&type=gif";
-    image.width = 300;
-    image.height = 300;
+    image.width = 200;
+    image.height = 200;
     div.appendChild(image);
+}
+
+function rpsgame(yourchoice) {
+    var humanchoice = yourchoice.id;
+    var botchoice = randomnumber();
+    var winner = decidewinner(humanchoice, botchoice);
+    var msg = displaymsg(winner);
+    rpsfrontend(humanchoice, botchoice, msg);
+}
+
+function randomnumber() {
+    return ['rock', 'paper', 'scissor'][Math.floor(Math.random() * 3)]
+}
+
+function decidewinner(humanChoice, botchoice) {
+    var rpsgamedata = {
+        'rock': {
+            'rock': 0.5,
+            'paper': 0,
+            'scissor': 1
+        },
+        'paper': {
+            'paper': 0.5,
+            'rock': 1,
+            'scissor': 0
+        },
+        'scissor': {
+            'scissor': 0.5,
+            'rock': 0,
+            'paper': 1
+        },
+    }
+
+    var humanresult = rpsgamedata[humanChoice][botchoice];
+    var botresult = rpsgamedata[botchoice][humanChoice];
+
+    return [humanresult, botresult]
+}
+
+function displaymsg(winner) {
+    if (winner[0] === 0) {
+        return {
+            'message': 'You Lost',
+            'color': 'red',
+        }
+    } else if (winner[0] === 1) {
+        return {
+            'message': 'You won',
+            'color': 'green',
+        }
+    } else {
+        return {
+            'message': 'You tied',
+            'color': 'black'
+        }
+    }
+}
+
+function rpsfrontend(humanChoice, botchoice, msg) {
+    imgdata = {
+        'rock': document.getElementById('rock').src,
+        'paper': document.getElementById('paper').src,
+        'scissor': document.getElementById('scissor').src,
+    }
+    document.getElementById('rock').remove();
+    document.getElementById('paper').remove();
+    document.getElementById('scissor').remove();
+
+    var humandiv = document.createElement('div');
+    var messagediv = document.createElement('div');
+    var botdiv = document.createElement('div');
+
+    humandiv.innerHTML = "<img src='" + imgdata[humanChoice] + " ' width=150 height=150 />";
+    messagediv.innerHTML = "<h1 style='color:" + msg['color'] + ";font-size:60px;padding:30px'> " + msg['message'] + "</h1>";
+    botdiv.innerHTML = "<img src='" + imgdata[botchoice] + "' width=150 height=150 />";
+
+    document.getElementById("flex-box-container-3").appendChild(humandiv);
+    document.getElementById("flex-box-container-3").appendChild(messagediv);
+    document.getElementById("flex-box-container-3").appendChild(botdiv);
+
 }
