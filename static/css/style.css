@@ -1,5 +1,5 @@
 
-.container-1, .container-2, .container-3 {
+.container-1, .container-2, .container-3, .container-4 {
     text-align: center;
     border: 1px solid black;
     margin: 0 auto;
@@ -10,7 +10,7 @@
     margin-bottom: 5px;
 }
 
-.flex-box-container, .flex-box-container-2, .flex-box-container-3 {
+.flex-box-container, .flex-box-container-2, .flex-box-container-3, .flex-box-container-4 {
     display: flex;
     justify-content: space-around;
     border: 1px solid black;
@@ -27,4 +27,8 @@
     height: 200px;
     margin: 10px;
     cursor: pointer;
+}
+
+.flex-box-container-4 button {
+    margin: 5px;
 }
