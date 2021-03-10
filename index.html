@@ -32,7 +32,7 @@
     </div>
     <div class="container-3">
         <h1>Rock,Paper, Scissor</h1>
-        <div id="flex-box-container-3"  class="flex-box-container-3">
+        <div id="flex-box-container-3" class="flex-box-container-3">
             <img src="/static/images/rock.jpg" alt="" id="rock" onclick="rpsgame(this)">
             <img src="/static/images/paper.jfif" alt="" id="paper" onclick="rpsgame(this)">
             <img src="/static/images/scissor.jpg" alt="" id="scissor" onclick="rpsgame(this)">
@@ -44,19 +44,57 @@
         <div class="flex-box-container-4">
             <form>
                 <select name="backdrop" id="background" onchange="buttoncolorchange(this)">
-                <option value="random">Random</option>
-                <option value="red">Red</option>
-                <option value="green">Green</option>
-                <option value="reset">Reset</option>
+                    <option value="random">Random</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="reset">Reset</option>
                 </select>
             </form>
             <button class="btn btn-primary">Chocos</button>
             <button class="btn btn-danger">Current</button>
             <button class="btn btn-success">Hurray</button>
             <button class="btn btn-warning">Start</button>
-
         </div>
     </div>
+
+    <div class="container-5">
+        <h1>Blackjack </h1>
+        <h3><span id="blackjack-result">Let's Play</span></h3>
+        <div class="flex-blackjack-row-1">
+            <div id="your-box">
+                <h2>You:<span id="your-blackjack-result">0</span></h2>
+            </div>
+            <div id="dealer-box">
+                <h2>Dealer:<span id="dealer-blackjack-result">0</span></h2>
+            </div>
+        </div>
+        <div class="flex-blackjack-row-2">
+            <div>
+                <button class="btn-lg  btn-primary mr-2 " id="blackjack-hit-button">Hit</button>
+                <button class="btn-lg  btn-warning mr-2 " id="blackjack-stand-button">Stand</button>
+                <button class="btn-lg  btn-danger  mr-2" id="blackjack-deal-button">Deal</button>
+            </div>
+
+        </div>
+        <div class="flex-blackjack-row-3">
+            <table>
+                <tr style="border-width:1px;">
+                    <th style="border-width:1px;">Wins</th>
+                    <th style="border-width:1px;">Losses</th>
+                    <th style="border-width:1px;">Draws</th>
+                </tr>
+                <tr style="border-width:1px;">
+                    <td style="border-width:1px;" id="wins">0</td>
+                    <td style="border-width:1px;" id="losses">0</td>
+                    <td style="border-width:1px;" id="draws">0</td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+
 
     <script src="/static/js/app.js" async defer></script>
 </body>
