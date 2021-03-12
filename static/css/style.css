@@ -42,3 +42,12 @@ table, th, td, tr {
     background-image: url("/static/images/background.jpg");
     color: #fff;
 }
+
+.flex-blackjack-row-1 div {
+    flex: 1;
+}
+
+#your-box img , #dealer-box img{
+    width:110px;
+    padding:10px;
+}
